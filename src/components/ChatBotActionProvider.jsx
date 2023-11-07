@@ -21,6 +21,47 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 			messages: [...prev.messages, botMessage],
 		}));
 	};
+
+	const handleSupportContact = () => {
+		const botMessage = createChatBotMessage(
+			"Here's the conatct number\n+44 7700 900077\n. hope that helps ;)"
+		);
+		setState((prev) => ({
+			...prev,
+			messages: [...prev.messages, botMessage],
+		}));
+	};
+
+	const handleSupportEmail = () => {
+		const botMessage = createChatBotMessage(
+			"Here's the email address: \nsupport@botmail.com\n. hope that helps ;)"
+		);
+		setState((prev) => ({
+			...prev,
+			messages: [...prev.messages, botMessage],
+		}));
+	};
+
+	const handleLoginIssues = () => {
+		const botMessage = createChatBotMessage("Did you try clearing cache?", {
+			widget: "loginIssueOptions",
+		});
+		setState((prev) => ({
+			...prev,
+			messages: [...prev.messages, botMessage],
+		}));
+	};
+
+	const handleLoginIssuesNO = () => {
+		const botMessage = createChatBotMessage(
+			"Please try login after clearing the cache\n this should help. ;)"
+		);
+		setState((prev) => ({
+			...prev,
+			messages: [...prev.messages, botMessage],
+		}));
+	};
+
 	return (
 		<div>
 			{React.Children.map(children, (child) => {
@@ -28,6 +69,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 					actions: {
 						handleHello,
 						handleDog,
+						handleSupportContact,
+						handleSupportEmail,
+						handleLoginIssues,
+						handleLoginIssuesNO,
 					},
 				});
 			})}

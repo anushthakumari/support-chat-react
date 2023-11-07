@@ -3,6 +3,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 //widgets
 import DogPicture from "../widgets/DogPicture";
 import GreetSuggestions from "../widgets/GreetSuggestions";
+import LoginIssueOptions from "../widgets/LoginIssueOptions";
 
 const config = {
 	initialMessages: [
@@ -24,6 +25,10 @@ const config = {
 		{
 			widgetName: "greetSuggesstions",
 			widgetFunc: (props) => <GreetSuggestions {...props} />,
+		},
+		{
+			widgetName: "loginIssueOptions",
+			widgetFunc: (props) => <LoginIssueOptions {...props} />,
 		},
 	],
 };
