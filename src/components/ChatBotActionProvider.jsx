@@ -2,7 +2,9 @@ import React from "react";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 	const handleHello = () => {
-		const botMessage = createChatBotMessage("Hello. Nice to meet you.");
+		const botMessage = createChatBotMessage("Hello. Nice to meet you.", {
+			withAvatar: true,
+		});
 
 		setState((prev) => ({
 			...prev,
@@ -13,6 +15,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 		const botMessage = createChatBotMessage(
 			"Here's a nice dog picture for you!",
 			{
+				withAvatar: true,
 				widget: "dogPicture",
 			}
 		);
@@ -24,7 +27,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
 	const handleSupportContact = () => {
 		const botMessage = createChatBotMessage(
-			"Here's the conatct number\n+44 7700 900077\n. hope that helps ;)"
+			"Here's the conatct number\n+44 7700 900077\n. hope that helps ;)",
+			{
+				withAvatar: true,
+			}
 		);
 		setState((prev) => ({
 			...prev,
@@ -34,7 +40,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
 	const handleSupportEmail = () => {
 		const botMessage = createChatBotMessage(
-			"Here's the email address: \nsupport@botmail.com\n. hope that helps ;)"
+			"Here's the email address: \nsupport@botmail.com\n. hope that helps ;)",
+			{
+				withAvatar: true,
+			}
 		);
 		setState((prev) => ({
 			...prev,
@@ -44,6 +53,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
 	const handleLoginIssues = () => {
 		const botMessage = createChatBotMessage("Did you try clearing cache?", {
+			withAvatar: true,
 			widget: "loginIssueOptions",
 		});
 		setState((prev) => ({
@@ -54,7 +64,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
 	const handleLoginIssuesNO = () => {
 		const botMessage = createChatBotMessage(
-			"Please try login after clearing the cache\n this should help. ;)"
+			"Please try login after clearing the cache\n this should help. ;)",
+			{
+				withAvatar: true,
+			}
 		);
 		setState((prev) => ({
 			...prev,
