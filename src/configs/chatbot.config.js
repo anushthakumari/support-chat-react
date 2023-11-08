@@ -1,34 +1,58 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-
-//widgets
-import DogPicture from "../widgets/DogPicture";
-import GreetSuggestions from "../widgets/GreetSuggestions";
-import LoginIssueOptions from "../widgets/LoginIssueOptions";
+import Overview from "../widgets/Overview";
+import GlobalStatistics from "../widgets/GlobalStatistics";
+import LocalStatistics from "../widgets/LocalStatistics";
+import Contact from "../widgets/Contact";
+import MedicineDelivery from "../widgets/MedicineDelivery";
+import CoBotAvatar from "../components/CoBotAvatar";
 
 const config = {
+	lang: "no",
+	botName: "CoBot",
+	customStyles: {
+		botMessageBox: {
+			backgroundColor: "#04668a",
+		},
+		chatButton: {
+			backgroundColor: "#0f5faf",
+		},
+	},
 	initialMessages: [
-		createChatBotMessage(`I'm here to help you explain how I work.`),
 		createChatBotMessage(
-			"Here's a quick overview over what I need to function. ask me about the different parts to dive deeper.",
+			`Hi, I'm here to provide you with latest COVID 19 data to keep you safe!`
+		),
+		createChatBotMessage(
+			"Here's a quick overview of what I can help you with. You can also type in.",
 			{
 				withAvatar: false,
-				delay: 500,
-				widget: "greetSuggesstions",
+				delay: 400,
+				widget: "overview",
 			}
 		),
 	],
+	state: {},
+	customComponents: { botAvatar: (props) => <CoBotAvatar {...props} /> },
 	widgets: [
 		{
-			widgetName: "dogPicture",
-			widgetFunc: (props) => <DogPicture {...props} />,
+			widgetName: "overview",
+			widgetFunc: (props) => <Overview {...props} />,
+			mapStateToProps: ["messages"],
 		},
 		{
-			widgetName: "greetSuggesstions",
-			widgetFunc: (props) => <GreetSuggestions {...props} />,
+			widgetName: "globalStatistics",
+			widgetFunc: (props) => <GlobalStatistics />,
 		},
 		{
-			widgetName: "loginIssueOptions",
-			widgetFunc: (props) => <LoginIssueOptions {...props} />,
+			widgetName: "localStatistics",
+			widgetFunc: (props) => <LocalStatistics />,
+		},
+		{
+			widgetName: "emergencyContact",
+			widgetFunc: (props) => <Contact />,
+		},
+		{
+			widgetName: "medicineDelivery",
+			widgetFunc: (props) => <MedicineDelivery />,
 		},
 	],
 };
