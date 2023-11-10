@@ -288,6 +288,19 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 		}));
 	};
 
+	const handleExceptionMsgs = () => {
+		const botMessage = createChatBotMessage(
+			"Hmm.... I didn't get you there, but I can help you with the following.",
+			{
+				widget: "greetSuggesstions",
+			}
+		);
+		setState((prev) => ({
+			...prev,
+			messages: [...prev.messages, botMessage],
+		}));
+	};
+
 	return (
 		<div>
 			{React.Children.map(children, (child) => {
@@ -312,6 +325,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 						updateAccDetails,
 						skypePlans,
 						cancelPlans,
+						handleExceptionMsgs,
 					},
 				});
 			})}
