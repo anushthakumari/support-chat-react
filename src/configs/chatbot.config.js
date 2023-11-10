@@ -12,7 +12,7 @@ import Link from "../widgets/Link";
 
 const config = {
 	initialMessages: [
-		createChatBotMessage(`I'm here to help you explain how I work.`),
+		createChatBotMessage(`Hi there!!, \nI'm here to help you.`),
 		createChatBotMessage(
 			"Here's a quick overview over what I need to function. ask me about the different parts to dive deeper.",
 			{
